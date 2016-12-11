@@ -1,4 +1,4 @@
-/*
+/**
  * Configuration backend, used to save tokens and other sensetive data
  */
 
