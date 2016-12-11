@@ -48,21 +48,7 @@ setInterval(() => {
 }, 5000);
 
 /**
- * @apiDefine DBError
- *
- * @apiError (500) {Object} DBError
- *
- * @apiErrorExample {json} Error-Response:
- *      HTTP/1.1 500 InternalServerError
- *      {
- *          "error": "DBError",
- *          "error_details": "some DBError description",
- *          "results": {}
- *      }
- */
-
-/**
- * @api {get} /followers/ List all followers currently in DBB
+ * @api {get} /followers/ List all followers currently in DB
  * @apiName getFollowersList
  * @apiGroup followers
  *

@@ -7,31 +7,19 @@ let router = express.Router();
 import Config from 'models/config';
 
 /**
- * @apiDefine DBError
- *
- * @apiError (500) {Object} DBError
- *
- * @apiErrorExample {json} Error-Response:
- *      HTTP/1.1 500 InternalServerError
- *      {
- *          "error": "DBError",
- *          "error_details": "some DBError description",
- *          "results": {}
- *      }
- */
-
-/**
- * @apiDefine RequestSuccess
+ * @apiDefine ConfigRequestSuccess
  * @apiSuccess (200) {Boolean} error Should always be false
  * @apiSuccess (200) {Object} results Contains the results of Request
- * @apiSuccess (200) {String} results.id Id of the created config entry in DB
+ * @apiSuccess (200) {String} results.id Id of the config entry in DB
+ * @apiSuccess (200) {String} results.name Name of the setting
+ * @apiSuccess (200) {String} results.value Value of the setting
  *
  * @apiSuccessExample {json} Success-Response:
  *      HTTP/1.1 200 OK
  *      {
  *          "error": false,
  *          "results": {
- *                  "id": "21fsdkg9342ijhgh9sf0234",
+ *                  "_id": "21fsdkg9342ijhgh9sf0234",
  *                  "name": "twitter-consumer-key",
  *                  "value": "2sad21f2fxzcv23rszdvcs8219vsfd"
  *              }
@@ -54,6 +42,7 @@ import Config from 'models/config';
 
 /**
  * @api {get} /config/ List all configs
+ * @apiVersion 0.0.1
  * @apiName getConfigList
  * @apiGroup config
  *
@@ -99,6 +88,7 @@ router.get('/', (req, res) => {
 
 /**
  * @api {post} /config/ Create config entry
+ * @apiVersion 0.0.1
  * @apiName postConfig
  * @apiGroup config
  *
@@ -112,7 +102,7 @@ router.get('/', (req, res) => {
  *      }
  *
  * @apiUse DBError
- * @apiUse RequestSuccess
+ * @apiUse ConfigRequestSuccess
  *
  * @apiError (400) {Object} EntryExists Config entry with provided name is already in DB, send back entry id for updates
  *
@@ -159,7 +149,7 @@ router.post('/', (req, res) => {
             }
             return res.status(200).send({
                 'error': false,
-                'results': {'id': entry._id, 'name': entry.name, 'value': entry.value},
+                'results': entry,
             });
         });
     });
@@ -174,7 +164,7 @@ router.post('/', (req, res) => {
  * @apiParam {String} optionName Config entry name to return
  *
  * @apiUse DBError
- * @apiUse RequestSuccess
+ * @apiUse ConfigRequestSuccess
  * @apiUse EntryNotFound
  */
 router.get('/:optionName', (req, res) => {
@@ -199,7 +189,7 @@ router.get('/:optionName', (req, res) => {
         }
         return res.status(200).send({
             'error': false,
-            'results': {'id': entry._id, 'name': entry.name, 'value': entry.value},
+            'results': entry,
         });
     });
 });
@@ -221,7 +211,7 @@ router.get('/:optionName', (req, res) => {
  *
  *
  * @apiUse DBError
- * @apiUse RequestSuccess
+ * @apiUse ConfigRequestSuccess
  * @apiUse EntryNotFound
  */
 router.put('/', (req, res) => {
@@ -252,13 +242,13 @@ router.put('/', (req, res) => {
                 console.log(err);
                 return res.status(500).send({
                     'error': 'DBError',
-                    'error_details': 'Could not save new entry',
+                    'error_details': 'Could not update entry',
                     'results': {},
                 });
             }
             return res.status(200).send({
                 'error': false,
-                'results': {'id': entry._id, 'name': entry.name, 'value': entry.value},
+                'results': entry,
             });
         });
     });
@@ -267,7 +257,7 @@ router.put('/', (req, res) => {
 /**
  * @api {delete} /config/:id Delete config entry by id
  * @apiVersion 0.0.1
- * @apiName getConfig
+ * @apiName deleteConfig
  * @apiGroup config
  *
  * @apiParam {String} id Config entry id
