@@ -13,7 +13,7 @@
   },
   "apidoc": {
     "title": "Sono-Bot API",
-    "url" : "http://localhost:5000/api/v1",
+    "url": "http://localhost:5000/api/v1",
     "sampleUrl": "http://localhost:5000/api/v1"
   },
   "keywords": [
@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/orels1/Sono-Bot#readme",
   "dependencies": {
+    "app-module-path": "^2.1.0",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "moment": "^2.17.1",
