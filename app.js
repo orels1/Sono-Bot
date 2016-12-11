@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // DB
 var mongoose = require('mongoose');
-mongoose.connect("localhost/sono");
+mongoose.connect('localhost/sono');
 
 mongoose.connection.on('error', function() {
     console.log('Error: Could not connect to MongoDB. Did you forget to run `mongod`?');
@@ -27,3 +27,9 @@ var server = require('http').createServer(app);
 server.listen(app.get('port'), function() {
     console.log('Sono bot is available at http://localhost:' + app.get('port'));
 });
+
+// modules
+var config = require('./backend/config');
+
+// API (v1)
+app.use('/api/v1/config', config.router);
