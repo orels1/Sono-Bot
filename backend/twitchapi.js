@@ -21,7 +21,7 @@ client.on('chat', (channel, userstate, message, self) => {
     if (self) return;
 
     // push message to client
-    io.emit('chat', `${userstate['display-name']}: ${message}`);
+    io.emit('chat', [userstate['display-name'], message]);
 });
 
 export {client};
