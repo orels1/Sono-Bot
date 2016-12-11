@@ -1,6 +1,9 @@
 // babel compiler
 require("babel-register");
 
+// paths
+require('app-module-path').addPath(__dirname + '/');
+
 var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
@@ -29,7 +32,8 @@ server.listen(app.get('port'), function() {
 });
 
 // modules
-var config = require('./backend/config');
+var config = require('./backend/api/v1/config');
+var twitchapi = require('./backend/twitchapi');
 
 // API (v1)
 app.use('/api/v1/config', config.router);
