@@ -41,3 +41,6 @@ apidoc/*
 
 # ignore future credentials updates
 credentials.json
+
+# ignore heavy source materials
+src/*
