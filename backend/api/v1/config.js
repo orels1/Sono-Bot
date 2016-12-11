@@ -4,7 +4,7 @@
 
 import express from 'express';
 let router = express.Router();
-import Config from '../models/config';
+import Config from 'models/config';
 
 /**
  * @apiDefine DBError
