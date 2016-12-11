@@ -54,7 +54,7 @@ import Config from 'models/config';
 
 /**
  * @api {get} /config/ List all configs
- * @apiName getConfigRoot
+ * @apiName getConfigList
  * @apiGroup config
  *
  * @apiUse DBError
@@ -70,7 +70,7 @@ import Config from 'models/config';
  *          "results": {
  *                  "list": [
  *                      {
- *                          "id": "21fsdkg9342ijhgh9sf0234",
+ *                          "_id": "21fsdkg9342ijhgh9sf0234",
  *                          "name": "twitter-consumer-key",
  *                          "value": "2sad21f2fxzcv23rszdvcs8219vsfd"
  *                      }
@@ -308,7 +308,7 @@ router.delete('/:id', (req, res) => {
             'error': false,
             'results': {},
         });
-    })
-})
+    });
+});
 
 export {router};
