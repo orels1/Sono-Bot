@@ -39,4 +39,5 @@ jspm_packages
 # apidocs directory
 apidoc/*
 
-
+# ignore future credentials updates
+credentials.json
