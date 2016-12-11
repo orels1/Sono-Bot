@@ -31,9 +31,21 @@ server.listen(app.get('port'), function() {
     console.log('Sono bot is available at http://localhost:' + app.get('port'));
 });
 
+// export server for the modules which needs it
+module.exports = server;
+
 // modules
-var config = require('./backend/api/v1/config');
 var twitchapi = require('./backend/twitchapi');
+var socket = require('./backend/socket');
+
+// API handlers
+var config = require('./backend/api/v1/config');
+var followers = require('./backend/api/v1/followers');
 
 // API (v1)
 app.use('/api/v1/config', config.router);
+app.use('/api/v1/followers', followers.router);
+
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/index.html');
+});
