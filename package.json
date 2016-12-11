@@ -11,6 +11,11 @@
     "type": "git",
     "url": "git+https://github.com/orels1/Sono-Bot.git"
   },
+  "apidoc": {
+    "title": "Sono-Bot API",
+    "url" : "http://localhost:5000/api/v1",
+    "sampleUrl": "http://localhost:5000/api/v1"
+  },
   "keywords": [
     "twitch",
     "bot",
