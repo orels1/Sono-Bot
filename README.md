@@ -1,3 +1,7 @@
 # Sono-Bot
 
-![splash](http://i.imgur.com/133Z60W.png)
+### UI prototypes
+
+![splash](http://imgur.com/FWhlo1X)
+
+![dashboard](http://imgur.com/k4CNqLQ)
