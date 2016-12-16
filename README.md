@@ -2,6 +2,6 @@
 
 ### UI prototypes
 
-![splash](http://imgur.com/FWhlo1X)
+![splash](http://i.imgur.com/FWhlo1X.png)
 
-![dashboard](http://imgur.com/k4CNqLQ)
+![dashboard](http://i.imgur.com/k4CNqLQ.png)
