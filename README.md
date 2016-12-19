@@ -26,4 +26,6 @@
 
 [Loading animation](http://codepen.io/orels/pen/ZBwpaW)
 
-[Notification animation](http://codepen.io/orels/pen/BQMLgB)
+[Notification animation](http://i.imgur.com/CF9UP58.gif)
+
+Source: http://codepen.io/orels/pen/BQMLgB
