@@ -1,6 +1,10 @@
+@import './variables'
+
 body
     font-family: 'Montserrat', sans-serif
+    background: $body-bg
 
+// Splash screen
 .container-table 
     display: table
     width: 100%
@@ -27,6 +31,8 @@ body
     color: #fff
     text-shadow: 0 1px 0 rgba(0,0,0,0.2)
 
+// Buttons
+
 .btn.btn-pill
     padding: 5px 40px 5px 40px
     border-radius: 100px
@@ -42,3 +48,100 @@ body
 
 .btn.btn-outline-white:hover
     background: rgba(255,255,255,0.2)
+
+// Sidebar
+
+.sidebar
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 10
+    width: $sidebar-width
+    height: 100vh
+    background: $bars-bg
+
+.sidebar-nav
+    width: $sidebar-width
+    box-sizing: border-box
+    padding: 0
+    margin: 0
+
+    ul
+        margin: 0
+        padding: 0
+        list-style: none
+
+        li
+            padding: 0
+            margin: 40px 0 0 0
+            width: $sidebar-width
+            text-align: center
+
+            a
+                display: block
+                width: $sidebar-width
+                height: 24px
+                background-position: center center
+                background-repeat: no-repeat
+                background-size: 24px 24px
+                transition: background 300ms ease
+
+
+                &.dashboard-link
+                    background-image: url('/img/icons/dashboard-default.png')
+
+                    &:hover
+                        background-image: url('/img/icons/dashboard-active.png')
+                    &.active
+                        background-image: url('/img/icons/dashboard-active.png')
+                
+                &.settings-link
+                    background-image: url('/img/icons/settings-default.png')
+                    
+                    &:hover
+                        background-image: url('/img/icons/settings-active.png')
+                    &.active
+                        background-image: url('/img/icons/settings-active.png')
+
+// Notifications
+
+.notification-block
+    display: block
+    position: relative
+    width: $sidebar-width
+    height: $topbar-height
+    
+    &:before, &:after
+        content: ''
+        position: absolute
+        display: block
+        width: $sidebar-width
+        height: $topbar-height
+
+    &:before
+        z-index: 12
+        background: url('/img/logo-transparent.png') center center no-repeat
+        background-size: 45%
+
+    &:after
+        z-index: 11
+        background: $grad-purple
+
+
+
+// Topbar
+
+.topbar
+    position: absolute
+    top: 0
+    left: 0
+    padding-left: $sidebar-width
+    width: 100vw
+    height: $topbar-height
+    background: $bars-bg
+
+// Main app window
+
+.app
+    margin: $topbar-height 0 0 $sidebar-width
+    padding: 40px

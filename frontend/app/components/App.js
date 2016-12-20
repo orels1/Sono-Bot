@@ -3,12 +3,18 @@
  * Defines site-wide elements
  */
 import React from 'react';
+import Sidebar from './Sidebar';
+import Topbar from './Topbar';
 
 class App extends React.Component {
     render() {
         return (
             <div>
-                {this.props.children}
+                <Topbar />
+                <Sidebar history={this.props.history} />
+                <div className="app">
+                    {this.props.children}
+                </div>
             </div>
         );
     }

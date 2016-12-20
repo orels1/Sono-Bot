@@ -1,6 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router';
 
-class Home extends React.Component {
+class Splash extends React.Component {
     constructor(props) {
         super(props);
         // We are getting state from our store
@@ -62,7 +63,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         // Will fire once, after markup has been injected
-        HomeStore.listen(this.onChange);
+        // HomeStore.listen(this.onChange);
     }
 
     componentWillUnmount() {
@@ -87,14 +88,15 @@ class Home extends React.Component {
                     <div className="title">Sono-Bot</div>
                     <small>A proper bot for advanced streamers</small>
                     <br />
-                    <button
+                    <Link
+                        to="/dashboard"
                         style={{
                             'marginTop': '20px',
                         }}
                         className="btn btn-default btn-pill btn-outline-white"
                     >
                         Open Dashboard
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -102,4 +104,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default Splash;
