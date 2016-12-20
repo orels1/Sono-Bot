@@ -44,3 +44,6 @@ credentials.json
 
 # ignore heavy source materials
 src/*
+
+# ignore compiled materials
+public/*
