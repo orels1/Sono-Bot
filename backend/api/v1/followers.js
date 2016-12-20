@@ -7,6 +7,7 @@ let router = express.Router();
 import {client} from 'backend/twitchapi';
 import Follower from 'models/follower';
 import credentials from 'credentials.json';
+import {io} from 'backend/socket';
 
 const headers = {
     'Client-ID': credentials.tmi.options.clientId,
