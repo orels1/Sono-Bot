@@ -1,5 +1,5 @@
 // babel compiler
-require("babel-register");
+require('babel-register');
 
 // paths
 require('app-module-path').addPath(__dirname + '/');
@@ -8,6 +8,7 @@ var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var express = require('express');
+var swig = require('swig');
 
 var app = express();
 
@@ -48,6 +49,26 @@ app.use('/api/v1/config', config.router);
 app.use('/api/v1/followers', followers.router);
 app.use('/api/v1/timers', timers.router);
 
-app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/index.html');
+// Frontend (web)
+var swig  = require('swig'),
+    React = require('react'),
+    ReactDOM = require('react-dom/server'),
+    Router = require('react-router'),
+    routes = require('frontend/app/routes');
+
+// React Middleware
+app.use(function(req, res) {
+    Router.match({ 'routes': routes.default, 'location': req.url }, function(err, redirectLocation, renderProps) {
+        if (err) {
+            res.status(500).send(err.message);
+        } else if (redirectLocation) {
+            res.status(302).redirect(redirectLocation.pathname + redirectLocation.search);
+        } else if (renderProps) {
+            var html = ReactDOM.renderToString(React.createElement(Router.RouterContext, renderProps));
+            var page = swig.renderFile('frontend/views/index.html', { 'html': html });
+            res.status(200).send(page);
+        } else {
+            res.status(404).send('Page Not Found');
+        }
+    });
 });
