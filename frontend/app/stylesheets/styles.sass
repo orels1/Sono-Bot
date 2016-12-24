@@ -139,6 +139,73 @@ body
     width: 100vw
     height: $topbar-height
     background: $bars-bg
+    display: flex
+    justify-content: flex-start
+    flex-direction: row
+
+.topbar-container
+    margin-left: 40px
+    margin-top: 7px
+
+// Status list
+
+.status-item
+    width: 220px
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    line-height: 16px
+
+    .status-item-title, .status-item-value
+        font-weight: 400
+        font-size: 14px
+        display: inline-block
+        
+
+    .status-item-title
+        order: 1
+        text-align: left
+        color: $text-lgray
+    
+    .status-item-value
+        order: 2
+        text-align: right
+        color: $text-lgray
+
+        &.green
+            color: $text-green
+
+        &.red
+            color: $text-red
+
+// Latest block (follower/sub)
+    
+.latest-item
+    width: 270px
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    height: $topbar-height - 17px
+
+    .latest-title
+        color: $text-lgray
+    
+    .latest-block
+        background: #323232
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        padding: 4px 20px
+
+        .latest-block-title
+            color: #fff
+
+        .latest-block-date
+            color: $text-dgray
+            font-size: 12px
+            line-height: 24px
+
+
 
 // Main app window
 
