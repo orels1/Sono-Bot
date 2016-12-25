@@ -33,21 +33,39 @@ body
 
 // Buttons
 
-.btn.btn-pill
-    padding: 5px 40px 5px 40px
-    border-radius: 100px
-    font-size: 18px
+.btn
+    font-size: 14px
     font-weight: bold
     color: #ffffff
 
-.btn.btn-outline-white
-    outline: none !important
-    background: transparent
-    border: 2px solid #ffffff
-    transition: background 300ms ease
+    &.btn-pill
+        font-size: 18px
+        padding: 5px 40px 5px 40px
+        border-radius: 100px
+        
 
-.btn.btn-outline-white:hover
-    background: rgba(255,255,255,0.2)
+    &.btn-outline-white
+        outline: none !important
+        background: transparent
+        border: 2px solid #ffffff
+        transition: background 300ms ease
+
+    &.btn-outline-white:hover
+        background: rgba(255,255,255,0.2)
+
+    &.btn-rect
+        padding: 5px 20px
+        line-height: 14px
+        border-radius: 0
+
+    &.btn-grad-red
+        background: $grad-red
+
+    &.btn-grad-green
+        background: $grad-green
+    
+    &.btn-grad-purple
+        background: $grad-purple
 
 // Sidebar
 
@@ -212,3 +230,89 @@ body
 .app
     margin: $topbar-height 0 0 $sidebar-width
     padding: 40px
+
+// Dashboard
+
+.dashboard
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    flex-wrap: wrap
+
+    .dashboard-column
+        margin-right: 40px
+        width: auto
+
+        .dashboard-block
+            margin-bottom: 15px
+
+.dashboard-bot-controls
+    width: 400px
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+        
+// twitch chat
+
+.twitch-chat
+    width: 400px
+    height: 600px
+    background: $bars-bg
+
+// lists
+
+.list-container
+    width: 360px
+
+    ul
+        list-style: none
+        margin: 0
+        padding: 8px
+        background: $bars-bg
+        overflow-y: scroll
+
+        .list-item
+            width: 100%
+            margin-bottom: 8px
+
+            &:last-child
+                margin-bottom: 0
+            
+            .list-block
+                background: #323232
+                display: flex
+                flex-direction: row
+                justify-content: space-between
+                padding: 0 20px
+                line-height: 32px
+                height: 32px
+
+                &.new
+                    animation-name: new-flash
+                    animation-iteration-count: 1
+                    animation-duration: 1s
+
+                .list-block-title
+                    color: #fff
+
+                .list-block-data
+                    color: $text-dgray
+                    font-size: 12px
+
+@keyframes new-flash
+    0%
+        background: #fff
+    100%
+        background: #323232
+
+.list-title
+    display: block
+    width: 360px
+    box-sizing: border-box
+    line-height: 50px
+    text-align: center
+    font-size: 20px
+    color: #fff
+    font-weight: 400
+    background: $twitch-bg
+
