@@ -3,12 +3,7 @@ html, body, .container-table {
 }
 
 body{
-    background: linear-gradient(315deg, #31d4eb, #5d00aa);
-    background-size: 400% 400%;
-
-    -webkit-animation: blueish-bg 40s ease infinite;
-    -moz-animation: blueish-bg 40s ease infinite;
-    animation: blueish-bg 40s ease infinite;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 .container-table {
@@ -16,6 +11,12 @@ body{
     width: 100%;
     margin: 0;
     padding: 0;
+    background: linear-gradient(315deg, #31d4eb, #5d00aa);
+    background-size: 400% 400%;
+
+    -webkit-animation: blueish-bg 40s ease infinite;
+    -moz-animation: blueish-bg 40s ease infinite;
+    animation: blueish-bg 40s ease infinite;
 }
 .vertical-center-row {
     display: table-cell;
@@ -53,4 +54,77 @@ body{
 .logo small {
     color: #fff;
     text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+.btn.btn-pill {
+    background: transparent;
+    color: #fff;
+    display: block;
+    padding: 0 60px;
+    line-height: 32px;
+    border: 2px solid #fff;
+    font-size: 14px;
+    font-weight: 400px;
+    transition: background 300ms ease;
+    margin: 20px auto;
+    border-radius: 100px;
+    outline: none !important;
+}
+
+.btn.btn-pill:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.btn.btn-pill:active {
+    background: rgba(255,255,255,0.6);
+}
+
+.blog {
+    padding: 60px;
+    background: #323232;
+}
+
+.blog h1 {
+    color: #fff;
+}
+
+small.site-link {
+    color: rgba(255,255,255,0.8);
+}
+
+.blog-posts {
+    margin-top: 40px;
+}
+
+.blog-posts .card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    color: rgba(255,255,255,0.9);
+    font-family: 'Raleway' !important;
+    font-weight: 300;
+}
+
+.blog-posts .card .card-header {
+    border-radius: 4px 4px 0 0;
+    color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.1);
+    border: none;
+}
+
+.blog-posts .card .card-footer {
+    border-radius: 0 0 4px 4px;
+    color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.1);
+    border: none;
+}
+
+.blog-posts .card .card-footer a {
+    color: rgba(255,255,255,0.6);
+    transition: color 300ms ease;
+    font-weight: 600;
+}
+
+.blog-posts .card .card-footer a:hover {
+    color: rgba(255,255,255,0.8);
 }

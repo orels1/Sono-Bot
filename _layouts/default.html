@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{site.title}}</title>
+        {% include imports.html %}
+    </head>
+    <body>
+        <div class="container container-table">
+            <div class="row vertical-center-row">
+                <div class="logo text-xs-center col-md-6 offset-md-3">
+                    <img src="img/logo-transparent.png" width="30%" />
+                    <div class="title">Sono-Bot</div>
+                    <small>A proper bot for advanced streamers</small>
+                    <button class="btn btn-pill" id="go-to-blog">Dev Updates</button>
+                </div>
+            </div>
+        </div>
+        <div class="blog">
+            {{content}}
+        </div>
+    </body>
+</html>

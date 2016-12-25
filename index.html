@@ -1,31 +1,24 @@
-<!doctype html>
-<html>
-    <head>
-        <title>Socket.IO debug</title>
-        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-        <script>
-            var socket = io();
-            socket.on('chat', function(data) {
-                console.log(data);
-            });
-            socket.on('follower', function(data) {
-                console.log(data);
-            });
-        </script>
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Raleway:400,600" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="css/styles-temp.css"></link>
-    </head>
-    <body>
-        <div class="container container-table">
-            <div class="row vertical-center-row">
-                <div class="logo text-xs-center col-md-6 offset-md-3">
-                    <img src="img/logo-transparent.png" width="30%" />
-                    <div class="title">Sono-Bot</div>
-                    <small>A proper bot for advanced streamers</small>
-                </div>
+---
+layout: default
+---
+<div class="col-md-6 offset-md-3 text-xs-center">
+    <h1 class="display-2">Dev Blog</h1><small class="site-link">by <a href="http://orels1.tips" target="_blank">orels1</a></small>
+</div>
+
+<section class="col-md-6 offset-md-3 blog-posts">
+    {% for post in site.posts %}
+        <div class="card">
+            <div class="card-header">Posted on {{post.date | date_to_long_string }}</div>
+            <div class="card-block">
+                <p class="card-text">
+                    {{post.content}}
+                </p>
+            </div>
+            <div class="card-footer"><i class="fa fa-history" aria-hidden="true"></i>
+                {% for commit in post.commits %}
+                    <a href="https://github.com/orels1/Sono-Bot/commit/{{commit}}" target="_blank">{{commit | slice: 0, 6 }}</a>,&nbsp;
+                {% endfor %}
             </div>
         </div>
-    </body>
-</html>
+    {% endfor %}
+</section>

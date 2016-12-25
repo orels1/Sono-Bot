@@ -1,0 +1,14 @@
+title: Sono-Bot Dev Blog
+email: sono@orels1.tips
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: orels1tips
+github_username:  orels1
+
+# Build settings
+markdown: kramdown
+gems:
+  - jekyll-feed
+exclude:
+  - Gemfile
+  - Gemfile.lock
