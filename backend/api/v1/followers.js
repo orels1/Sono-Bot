@@ -17,7 +17,7 @@ const twBaseUrl = 'https://api.twitch.tv/kraken';
 // Follower realtime checker
 function getFollowers(cb) {
     client.api({
-        'url': twBaseUrl + '/channels/orels1/follows',
+        'url': twBaseUrl + '/channels/yogscast/follows',
         'headers': headers,
     }, (err, res, body) => {
         if (err) return console.error(err);
@@ -45,8 +45,8 @@ function getFollowers(cb) {
 
 setInterval(() => {
     // emit new follower alert to the client
-    getFollowers((data) => {io.emit('follower', `New follower! ${data.name}`);});
-}, 5000);
+    getFollowers((follower) => {io.emit('follower', {'name': follower.name, 'joindate': follower.joindate});});
+}, 1000);
 
 /**
  * @api {get} /followers/ List all followers currently in DB
@@ -75,7 +75,10 @@ setInterval(() => {
  *      }
  */
 router.get('/', (req, res) => {
-    Follower.find({}, (err, followers) => {
+    Follower.find({})
+    .sort({'joindate': -1})
+    .select({'_id': 0, 'name': 1, 'joindate': 1})
+    .exec((err, followers) => {
         if (err) {
             console.log(err);
             return res.status(500).send({
