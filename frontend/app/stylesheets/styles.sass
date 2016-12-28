@@ -285,12 +285,12 @@ body
                 justify-content: space-between
                 padding: 0 20px
                 line-height: 32px
-                height: 32px
+                overflow-y: hidden
 
                 &.new
                     animation-name: new-flash
                     animation-iteration-count: 1
-                    animation-duration: 1s
+                    animation-duration: 500ms
 
                 .list-block-title
                     color: #fff
@@ -302,8 +302,10 @@ body
 @keyframes new-flash
     0%
         background: #fff
+        height: 0
     100%
         background: #323232
+        height: 32px
 
 .list-title
     display: block

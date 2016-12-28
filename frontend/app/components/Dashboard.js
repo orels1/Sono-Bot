@@ -57,7 +57,7 @@ class Dashboard extends React.Component {
                 </div>
                 <div className="dashboard-column">
                     <div className="dashboard-block">
-                        <List items={this.state.list} title="Followers" height="500px" />
+                        <List items={this.state.list} title="Followers" type="date" height="500px" />
                     </div>
                     <div className="dashboard-block">
                         <List items={this.state.timers} title="Timers" />

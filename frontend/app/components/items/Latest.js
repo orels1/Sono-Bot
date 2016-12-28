@@ -1,4 +1,5 @@
 import React from 'react';
+import TimeAgo from 'react-timeago';
 
 class Latest extends React.Component {
     constructor(props) {
@@ -16,6 +17,28 @@ class Latest extends React.Component {
         this.setState(state);
     }
 
+    // custom formatter
+    formatter(value, unit, suffix, date) {
+        switch (unit) {
+        case 'second':
+            return `${value} sec`;
+        case 'minute':
+            return `${value} min`;
+        case 'hour':
+            return `${value} hr`;
+        case 'day':
+            return `${value} d`;
+        case 'week':
+            return `${value} wk`;
+        case 'month':
+            return `${value} mnth`;
+        case 'year':
+            return `${value} yr`;
+        default:
+            return `${value} ${unit}`;
+        }
+    }
+
     render() {
         return (
             <div className="topbar-container">
@@ -25,13 +48,12 @@ class Latest extends React.Component {
                     </div>
                     <div className="latest-block">
                         <div className="latest-block-title">
-                            {this.props.value.title}
+                            {this.props.value.name}
                         </div>
-                        {this.props.value.date &&
-                            <div className="latest-block-date">
-                                {this.props.value.date}
-                            </div>
-                        }
+                        <div className="latest-block-date">
+                            {this.props.value.date && <TimeAgo date={this.props.value.date} formatter={this.formatter} />}
+                            {!this.props.value.date && 'never'}
+                        </div>
                     </div>
                 </div>
             </div>

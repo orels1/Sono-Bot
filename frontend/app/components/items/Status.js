@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 class Status extends React.Component {
     constructor(props) {
@@ -24,7 +25,8 @@ class Status extends React.Component {
                         {item.title}
                     </div>
                     <div className={'status-item-value ' + item.color}>
-                        {item.value}
+                        {item.type === 'time' && moment(moment().diff(moment(item.value))).format('HH:mm')}
+                        {!item.type && item.value}
                     </div>
                 </div>
             );
