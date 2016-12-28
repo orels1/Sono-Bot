@@ -43,11 +43,13 @@ var socket = require('./backend/socket');
 var config = require('./backend/api/v1/config');
 var followers = require('./backend/api/v1/followers');
 var timers = require('./backend/api/v1/timers');
+var status = require('./backend/api/v1/status');
 
 // API (v1)
 app.use('/api/v1/config', config.router);
 app.use('/api/v1/followers', followers.router);
 app.use('/api/v1/timers', timers.router);
+app.use('/api/v1/status', status.router);
 
 // Frontend (web)
 var swig  = require('swig'),
