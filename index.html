@@ -7,7 +7,7 @@ layout: default
 
 <section class="col-md-6 offset-md-3 blog-posts">
     {% for post in site.posts %}
-        <div class="card">
+        <div class="card" id="{{post.commits[0]}}">
             <div class="card-header">Posted on {{post.date | date_to_long_string }}</div>
             <div class="card-block">
                 <p class="card-text">
