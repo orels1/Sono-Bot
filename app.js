@@ -9,6 +9,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var express = require('express');
 var swig = require('swig');
+var cors = require('cors');
 
 var app = express();
 
@@ -45,11 +46,23 @@ var followers = require('./backend/api/v1/followers');
 var timers = require('./backend/api/v1/timers');
 var status = require('./backend/api/v1/status');
 
+// CORS for API
+// List of accepted domains
+var whitelist = ['http://localhost:4000'];
+
+// Custom matcher function
+var corsOpts = {
+    origin: function(origin, cb) {
+        var isWhitelisted = whitelist.indexOf(origin) !== -1;
+        cb(isWhitelisted ? null : 'Bad Request', isWhitelisted);
+    }
+};
+
 // API (v1)
-app.use('/api/v1/config', config.router);
-app.use('/api/v1/followers', followers.router);
-app.use('/api/v1/timers', timers.router);
-app.use('/api/v1/status', status.router);
+app.use('/api/v1/config', cors(corsOpts), config.router);
+app.use('/api/v1/followers', cors(corsOpts), followers.router);
+app.use('/api/v1/timers', cors(corsOpts), timers.router);
+app.use('/api/v1/status', cors(corsOpts), status.router);
 
 // Frontend (web)
 var swig  = require('swig'),
