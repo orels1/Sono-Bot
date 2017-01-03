@@ -48,3 +48,11 @@ src/*
 # ignore compiled materials
 public/js/*
 public/css/*
+
+# extra scripts
+*.cmd
+*.sh
+
+# Editors and IDEs
+.vscode
+.idea

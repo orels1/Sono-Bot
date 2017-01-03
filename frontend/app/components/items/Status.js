@@ -25,7 +25,12 @@ class Status extends React.Component {
                         {item.title}
                     </div>
                     <div className={'status-item-value ' + item.color}>
-                        {item.type === 'time' && moment(moment().diff(moment(item.value))).format('HH:mm')}
+                        {item.type === 'time' &&
+                            <div>
+                                {item.value === '00:00' && '00:00'}
+                                {item.value !== '00:00' && moment(moment().diff(moment(item.value))).format('HH:mm')}
+                            </div>
+                        }
                         {!item.type && item.value}
                     </div>
                 </div>

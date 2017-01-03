@@ -30,7 +30,7 @@ class Dashboard extends React.Component {
     }
 
     onChange(state) {
-        // We are listening to the store here and apply changes to this.state accodingly
+        // We are listening to the store here and apply changes to this.state accordingly
         this.setState(state);
     }
 
