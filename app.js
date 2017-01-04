@@ -48,21 +48,21 @@ var status = require('./backend/api/v1/status');
 
 // CORS for API
 // List of accepted domains
-var whitelist = ['http://localhost:4000'];
+var whitelist = ['http://localhost:4000', 'http://localhost:5000'];
 
 // Custom matcher function
 var corsOpts = {
     origin: function(origin, cb) {
         var isWhitelisted = whitelist.indexOf(origin) !== -1;
         cb(isWhitelisted ? null : 'Bad Request', isWhitelisted);
-    }
+    },
 };
 
 // API (v1)
-app.use('/api/v1/config', cors(corsOpts), config.router);
-app.use('/api/v1/followers', cors(corsOpts), followers.router);
-app.use('/api/v1/timers', cors(corsOpts), timers.router);
-app.use('/api/v1/status', cors(corsOpts), status.router);
+app.use('/api/v1/config', cors(), config.router);
+app.use('/api/v1/followers', cors(), followers.router);
+app.use('/api/v1/timers', cors(), timers.router);
+app.use('/api/v1/status', cors(), status.router);
 
 // Frontend (web)
 var swig  = require('swig'),
