@@ -27,7 +27,7 @@ class Sidebar extends React.Component {
                             <Link to="/" className="dashboard-link" activeClassName="active"></Link>
                         </li>
                         <li>
-                            <Link to="/settings" className="settings-link" activeClassName="active"></Link>
+                            <Link to="/settings/" className="settings-link" activeClassName="active"></Link>
                         </li>
                     </ul>
                 </nav>
